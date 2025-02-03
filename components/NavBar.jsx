@@ -10,7 +10,6 @@ import { signIn } from "@/action";
 export default function NavBar({ className }) {
   const wallet = useWallet();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { isSigned, setIsSigned } = useAppContext();
   const {
     buttonState,
     onDisconnect,
@@ -20,10 +19,10 @@ export default function NavBar({ className }) {
     setIsModalOpen(true);
   };
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
     sign();
-  };
+  }, []);
 
   useEffect(() => {
     if (buttonState === "connected") {
@@ -32,7 +31,12 @@ export default function NavBar({ className }) {
     } else if (buttonState === "no-wallet") {
       setIsSigned(false);
     }
-  }, [buttonState,]);
+  }, [buttonState, setIsSigned]);
+
+  useEffect(() => {
+    closeModal();
+    setIsSigned();
+  }, [closeModal, setIsSigned]);
 
   const handleWalletChange = () => {
     switch (buttonState) {
@@ -50,6 +54,10 @@ export default function NavBar({ className }) {
         onDisconnect();
     }
   };
+
+  const handleDisconnect = useCallback(() => {
+    onDisconnect();
+  }, [onDisconnect]);
 
   //SignUp and signIn at once.
   const sign = useCallback(async () => {

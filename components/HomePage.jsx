@@ -11,6 +11,7 @@ import { Program, BN, Provider } from "@project-serum/anchor";
 import { Connection, PublicKey, SystemProgram } from "@solana/web3.js";
 import { getAssociatedTokenAddress, createAssociatedTokenAccountInstruction, TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, getAccount, getAssociatedTokenAddressSync } from "@solana/spl-token";
 import icoIdl from "@/components/idl/ico_program.json";
+import Image from 'next/image';
 
 const PROGRAM_ID = new PublicKey(process.env.NEXT_PUBLIC_PROGRAM_ID);
 const TOKEN_MINT = new PublicKey(process.env.NEXT_PUBLIC_TOKEN_MINT);
@@ -119,7 +120,7 @@ const HomePage = () => {
         }
     }, [inputAmount]);
 
-    const fetchIcoData = async () => {
+    const fetchIcoData = useCallback(async () => {
         if (!wallet.connected) return;
 
         try {
@@ -158,16 +159,11 @@ const HomePage = () => {
             console.error("Error fetching ICO data:", error);
             toast.error("Failed to fetch presale progress");
         }
-    };
-
-    // Add useEffect to fetch data periodically
-    useEffect(() => {
-        if (wallet.connected) {
-            fetchIcoData();
-            const interval = setInterval(fetchIcoData, 10000); // Refresh every 10 seconds
-            return () => clearInterval(interval);
-        }
     }, [wallet.connected]);
+
+    useEffect(() => {
+        fetchIcoData();
+    }, [fetchIcoData]);
 
     const buyTokens = async () => {
         if (!wallet.connected || !inputAmount) return;

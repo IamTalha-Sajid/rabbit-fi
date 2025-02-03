@@ -1,6 +1,6 @@
 'use client'
 
-export const Page = () => {
+export default function ChartPage() {
     return (
         <div>
             Chart page
