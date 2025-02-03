@@ -1,0 +1,955 @@
+ @font-face {
+   font-family: 'Debugger';
+   src: url('fonts/Debugger-Bold.woff2') format('woff2'),
+     url('fonts/Debugger-Bold.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+ }
+
+ body {
+   margin: 0;
+   font-family: 'Debugger';
+   background-color: #000;
+   color: #fff;
+ }
+
+ .navbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 20px;
+
+ }
+
+ .logo {
+   font-size: 1.5em;
+ }
+
+ .nav-links {
+   list-style: none;
+   display: flex;
+   gap: 50px;
+ }
+
+ .nav-links li {
+   display: inline;
+ }
+
+ .nav-links a {
+   text-decoration: none;
+   color: #fff;
+   font-size: 20px;
+   transition: 0.5s;
+ }
+
+ .nav-links a:hover {
+   text-decoration: underline;
+   transition: 0.5s;
+ }
+
+ .cta-button {
+   background-color: transparent;
+   border: 2px solid #fff;
+   padding: 10px 20px;
+   color: #fff;
+   font-size: 20px;
+   cursor: pointer;
+   border-radius: 14px;
+   border-top-right-radius: 0px;
+   font-family: 'Debugger';
+ }
+
+ .cta-button:hover {
+   background: #fff !important;
+   color: #000;
+   transition: 0.5s;
+ }
+
+ .hero {
+   display: flex;
+   justify-content: space-between;
+   padding: 100px 20px;
+   background-color: #000;
+   align-items: center;
+ }
+
+ .hero-text h1 {
+   font-size: 64px;
+ }
+
+ .hero-text p {
+   margin: 30px 0;
+   margin-left: 10%;
+   margin-top: 0px;
+   font-size: 22px;
+   line-height: 32px;
+   font-weight: 400;
+ }
+
+ .buy-now {
+   background-color: #00bfff;
+   border: none;
+   padding: 10px 20px;
+   color: #111;
+   cursor: pointer;
+ }
+
+ section {
+   padding: 60px 20px;
+   text-align: center;
+ }
+
+ h2 {
+   font-size: 64px;
+   margin-bottom: 40px;
+   display: inline-block;
+   border-bottom: 1px solid #fff;
+   /* Change color and thickness as needed */
+   padding-bottom: 15px;
+   /* Space between text and border */
+ }
+
+ #buy-token .buy-token-info {
+   display: flex;
+   justify-content: space-around;
+   align-items: flex-start;
+   gap: 20px;
+ }
+
+ #buy-token p {
+   font-size: 24px;
+   line-height: 34px;
+   font-weight: 400;
+   max-width: 1400px;
+   margin-left: auto;
+   margin-right: auto;
+
+ }
+
+ .presale-widget,
+ .token-details {
+
+   padding: 20px;
+   border-radius: 8px;
+   border: 1px solid #fff;
+   flex: 1;
+   border-bottom: 0;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+ }
+
+ footer {
+   text-align: center;
+   padding: 20px;
+   padding-left: 0px;
+   padding-right: 0px;
+   background-color: #fff;
+   margin-top: 40px;
+   color: #000;
+   min-height: 230px;
+  }
+
+ .social-icons {
+   margin-top: 20px;
+   text-align: end;
+ }
+
+ .social-icons a img:hover {
+   transition: 0.3s;
+   transform: scale(1.1);
+ }
+
+ .foot-img {
+   text-align: left;
+   padding: 15px 0px;
+   border-bottom: 1px solid #000;
+   padding-bottom: 20px;
+ }
+
+ .container {
+   width: 100%;
+   margin: 0 auto;
+   max-width: 1600px;
+   padding: 0 15px;
+   box-sizing: border-box;
+ }
+
+ .hero-text {
+   text-align: left;
+   max-width: 845px;
+ }
+
+ .hero-text h1 {
+   min-height: 160px;
+   margin-bottom: 30px;
+ }
+
+ #what-we-do p {
+   font-size: 24px;
+   line-height: 34px;
+   font-weight: 400;
+   max-width: 1400px;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+ #tokenomics p {
+   font-size: 24px;
+   line-height: 34px;
+   font-weight: 400;
+   max-width: 1400px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 70px;
+ }
+
+ .dog-running {
+   animation: dog-run 2s infinite alternate;
+ }
+
+ @keyframes dog-run {
+   from {
+     transform: translateX(0);
+   }
+
+   to {
+     transform: translateX(20px);
+   }
+ }
+
+ .token-chart {
+   position: relative;
+   display: inline-block;
+
+ }
+
+ #zoomable-image {
+   width: 100%;
+   display: block;
+   transition: transform 0.3s ease;
+   /* Smooth zoom effect */
+ }
+
+ .token-chart:hover #zoomable-image {
+   transform: scale(1.01);
+   /* Slight zoom on hover */
+   transform-origin: var(--mouse-x) var(--mouse-y);
+   /* Zoom around the cursor */
+ }
+
+ .accordion {
+   width: 100%;
+   max-width: 1050px;
+   margin: auto;
+   overflow: hidden;
+   font-family: 'Debugger';
+   margin-top: 40px;
+ }
+
+ .accordion-item {
+   border: 1px solid #fff;
+   border-radius: 12px;
+   margin-bottom: 30px;
+ }
+
+ .accordion-header {
+   background-color: #000;
+   padding: 15px;
+   text-align: left;
+   width: 100%;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   font-size: 24px;
+   font-weight: bold;
+   transition: background-color 0.3s ease;
+   display: flex;
+   justify-content: space-between;
+   /* Align text and arrow */
+   align-items: center;
+   color: #fff;
+   font-family: 'Debugger';
+   border-radius: 11px;
+
+ }
+
+ .accordion-header:hover {
+   background-color: #fff;
+   color: #000;
+ }
+
+ .open-header {
+   border-bottom-left-radius: 0px;
+   border-bottom-right-radius: 0px;
+   background: #fff;
+   color: #000;
+ }
+
+ .accordion-content {
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height 0.3s ease, padding 0.3s ease;
+   padding: 0 15px;
+   background-color: #f9f9f9;
+   font-family: 'Debugger';
+
+
+   border-bottom-left-radius: 11px;
+   border-bottom-right-radius: 11px;
+ }
+
+ .accordion-content p {
+   margin: 10px 0;
+   font-family: 'Debugger';
+   color: #000;
+   font-weight: 400;
+   text-align: left;
+ }
+
+ .accordion-content.open {
+   max-height: 200px;
+   /* Set an appropriate max height for content */
+   padding: 15px;
+   padding-top: 0px;
+ }
+
+ .arrow {
+   font-size: 14px;
+   transition: transform 0.3s ease;
+ }
+
+ .buy-token-info h3 {
+   font-size: 38px;
+   line-height: 48px;
+   margin-top: 0px;
+ }
+
+ .token-details {
+   text-align: left;
+   padding: 100px 50px;
+   box-sizing: border-box;
+
+ }
+
+ .tok-left {
+   max-width: 640px;
+ }
+
+ .tok-right {
+   width: 100%;
+   max-width: 1100px;
+ }
+
+ .token-details p {
+   font-size: 24px;
+   line-height: 34px;
+   font-weight: 400;
+   padding-bottom: 20px;
+ }
+
+
+ /* body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  } */
+ .buy-token-info {
+   margin-top: 40px;
+ }
+
+ .countdown-container {
+   display: flex;
+   gap: 40px;
+   background: #171717;
+   padding: 92px 40px 40px 40px;
+   justify-content: space-around;
+   margin-left: 30px;
+   margin-right: 30px;
+   margin-top: -60px;
+   border-radius: 8px;
+ }
+
+ .countdown-item {
+   text-align: center;
+ }
+
+ .circle {
+   width: 170px;
+   height: 130px;
+   border-radius: 8px;
+   display: block;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   padding-top: 20px;
+   box-sizing: border-box;
+   background: #000;
+ }
+
+ .circle span {
+   font-size: 34px;
+   font-weight: bold;
+ }
+
+ .countdown-item p {
+   margin-top: 0px;
+   font-size: 20px;
+   text-transform: capitalize;
+   color: #fff;
+ }
+
+ .presale-widget h4 {
+   font-size: 34px;
+   line-height: 44px;
+   margin-top: 0px;
+   margin-bottom: 20px;
+   background-color: #000;
+   display: inline-block;
+   padding-left: 30px;
+   padding-right: 30px;
+   transform: skew(-21deg);
+   /* Skew effect */
+ }
+
+ .presale-widget h4 strong {
+   transform: skew(21deg);
+   /* Skew effect */
+   display: inline-block;
+ }
+
+ .presale-widget {
+   padding: 20px 10px 30px 10px;
+   box-sizing: border-box;
+ }
+
+
+
+ .cus-fea {
+
+   padding: 20px 40px 10px 40px;
+   box-sizing: border-box;
+   background-color: #000;
+   border-radius: 8px;
+   border: 1px solid #fff;
+
+   margin-top: 0px;
+   border-top: 0px;
+   border-top-left-radius: 0;
+   border-top-right-radius: 0px;
+
+ }
+
+ .progress-bar-container {
+   background-color: #555;
+   border-radius: 5px;
+   height: 20px;
+   width: 100%;
+   margin: 10px 0;
+   position: relative;
+   overflow: hidden;
+ }
+
+ .progress-bar {
+   background-color: #fff;
+   height: 100%;
+   width: 0%;
+   transition: width 0.5s ease;
+ }
+
+ .input-field {
+   width: 100%;
+   margin: 10px 0;
+   padding: 10px;
+   font-size: 14px;
+   background-color: #444;
+   border: 1px solid #777;
+   color: #fff;
+   border-radius: 5px;
+   box-sizing: border-box;
+ }
+
+ .input-field:focus {
+   outline: none;
+   border-color: #fff;
+ }
+
+ .top-line-flex {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+
+ .top-line-flex p {
+   margin: 4px 0px !important;
+ }
+
+ .cus-fea p {
+   text-align: left;
+   margin: 8px 0px;
+ }
+
+
+ #hover-text-road {
+   margin-bottom: -30px;
+ }
+
+ .test-sec {
+   background-color: #000;
+   color: #fff;
+   overflow-x: hidden;
+   padding: 20px 0;
+ }
+
+ .timeline-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   overflow-x: auto;
+ }
+
+ .timeline {
+   display: flex;
+   position: relative;
+   width: 400%;
+   /* Adjust based on the number of phases */
+   height: 100%;
+   padding: 0 20px;
+   box-sizing: border-box;
+ }
+
+ /* Dotted Line */
+ .timeline::before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 0;
+   width: 140vw;
+   height: 1px;
+   background: repeating-linear-gradient(to right,
+       #fff 0,
+       #fff 10px,
+       transparent 10px,
+       transparent 20px);
+   z-index: 0;
+ }
+
+ /* Phases */
+ .phase {
+   flex: 0 0 20vw;
+   padding: 30px;
+   position: relative;
+   text-align: left;
+ }
+
+ /* Positioning Odd and Even Phases */
+ .phase:nth-child(odd) .speech-bubble {
+   position: absolute;
+   top: 50%;
+   height: fit-content;
+   transform: translateY(-50%);
+ }
+
+ .phase:nth-child(even) .speech-bubble {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+ }
+
+ .phase:nth-child(odd) .description {
+   margin-top: 700px;
+ }
+
+ .phase:nth-child(even) .description {
+   margin-top: 250px;
+ }
+
+
+
+ /* Speech Bubble */
+ .speech-bubble {
+   background: #fff;
+   color: #000;
+   padding: 10px;
+   border-radius: 10px;
+   position: relative;
+   display: inline-block;
+   max-width: 300px;
+   margin: 0 auto 20px;
+   width: 200px;
+   height: fit-content;
+ }
+
+ .speech-bubble::after {
+   content: '';
+   position: absolute;
+   bottom: -20px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 0;
+   height: fit-content;
+   border-width: 10px;
+   border-style: solid;
+   border-color: #fff transparent transparent transparent;
+ }
+
+ .phase:nth-child(2n) .speech-bubble::after {
+   content: '';
+   position: absolute;
+   top: -20px;
+   /* Moves the arrow above the speech bubble */
+   left: 50%;
+   transform: translateX(-50%);
+   width: 0;
+   height: 0;
+   border-width: 10px;
+   border-style: solid;
+   border-color: transparent transparent #fff transparent;
+   /* Arrow pointing upwards */
+ }
+
+ .speech-bubble p {
+   font-size: 22px;
+   margin: 0px;
+   text-align: left;
+ }
+
+ .speech-bubble p span {
+   font-size: 18px;
+   margin: 0px;
+
+ }
+
+ .cus-line-he {
+   line-height: 22px !important;
+ }
+
+ /* Description Section */
+ .description {
+   text-align: left;
+   margin: 0 auto;
+   color: #fff;
+   font-size: 14px;
+   max-width: 400px;
+ }
+
+ .description ul {
+   padding-left: 20px;
+   list-style: none;
+ }
+
+ .description ul li {
+   margin: 10px 0;
+   position: relative;
+ }
+
+ .description ul li::before {
+   content: '•';
+   color: #fff;
+   font-size: 18px;
+   margin-right: 10px;
+ }
+
+
+ #faq {
+   padding-top: 0px;
+ }
+
+ .tok-left {
+   text-align: left;
+ }
+
+ .tok-left .cta-button {
+   margin-top: 20px;
+ }
+
+ .progress-container {
+   width: 100%;
+   max-width: 100%;
+   margin: 20px auto;
+   background: #171717;
+   padding: 18px;
+   box-sizing: border-box;
+   border-radius: 11px;
+ }
+
+ .progress-label {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 5px;
+ }
+
+ .progress-bar {
+   width: 100%;
+   height: 16px;
+   background-color: #000;
+   border-radius: 18px;
+   overflow: hidden;
+   position: relative;
+   border: 1px solid #fff;
+ }
+
+ .progress-fill {
+   height: 100%;
+   background-color: #fff;
+   width: 0%;
+   border-radius: 18px;
+   transition: width 0.3s ease-in-out;
+ }
+
+ .input-container {
+   width: 100%;
+   max-width: 100%;
+   margin: 20px auto;
+   display: flex;
+   justify-content: center;
+   margin-top: 8px;
+ }
+
+ .styled-input {
+   width: 100%;
+   max-width: 100%;
+   height: 50px;
+   background-color: #171717;
+   color: white;
+   border: 1px solid #000;
+   border-radius: 11px;
+   text-align: right;
+   padding: 0 10px;
+   font-size: 16px;
+   outline: none;
+   font-family: 'Debugger';
+ }
+
+ .styled-input::placeholder {
+   color: #fff;
+   font-size: 16px;
+ }
+
+ .tok-right .cta-button {
+   width: 95%;
+   margin-top: 20px;
+ }
+
+
+ @media only screen and (max-width: 1600px) {
+
+   .hero-text h1 {
+     font-size: 54px;
+     min-height: 130px;
+     margin-bottom: 30px;
+   }
+
+   .dog-running {
+     width: 100%;
+     height: auto;
+   }
+
+   .phase {
+     flex: 0 0 30vw;
+   }
+
+   h2 {
+     font-size: 54px;
+   }
+ }
+
+ @media only screen and (max-width: 1350px) {
+   .hero-text {
+     max-width: 600px;
+   }
+
+   .hero-text h1 {
+     font-size: 44px;
+     min-height: 100px;
+     margin-bottom: 30px;
+   }
+
+   .tok-left {
+     max-width: 500px;
+   }
+
+   .token-details {
+     text-align: left;
+     padding: 24px 40px;
+     box-sizing: border-box;
+   }
+ }
+
+ @media only screen and (max-width: 1100px) {
+   #zoomable-image {
+     width: 80%;
+     height: auto;
+     margin: auto;
+   }
+
+   #buy-token .buy-token-info {
+     display: block;
+   }
+
+   .tok-left {
+     width: 100%;
+     max-width: 100%;
+     margin-bottom: 30px;
+   }
+ }
+
+
+ @media only screen and (max-width: 575px) {
+   .accordion-header {
+     font-size: 18px;
+   }
+
+   h2 {
+     font-size: 40px;
+     margin-bottom: 10px;
+   }
+
+   .foot-img img {
+     width: 100%;
+     height: auto;
+   }
+
+   .countdown-container {
+     gap: 5px;
+   }
+
+   .circle {
+     width: 70px;
+     height: 70px;
+   }
+
+   .countdown-item p {
+     margin-top: 0px;
+     font-size: 16px;
+   }
+
+   .circle span {
+     font-size: 20px;
+     font-weight: bold;
+   }
+
+   .cus-fea {
+     padding: 20px 15px 10px 15px;
+   }
+
+   .token-details p {
+     font-size: 18px;
+     line-height: 26px;
+   }
+
+   .buy-token-info h3 {
+     font-size: 28px;
+     line-height: 36px;
+     margin-top: 0px;
+   }
+
+   .token-details {
+     text-align: left;
+     padding: 20px 20px;
+     padding-bottom: 20px;
+     box-sizing: border-box;
+     padding-bottom: 0px;
+   }
+
+   .presale-widget h4 {
+     font-size: 30px;
+     line-height: 38px;
+   }
+
+   #tokenomics p {
+     font-size: 18px;
+     line-height: 26px;
+
+     margin-bottom: 30px;
+   }
+
+   #tokenomics {
+     padding-bottom: 0px;
+   }
+
+   #what-we-do p {
+     font-size: 18px;
+     line-height: 26px;
+
+   }
+
+   #what-we-do {
+     padding-bottom: 0px;
+   }
+
+   #zoomable-image {
+     width: 100%;
+   }
+
+   .hero {
+     display: block;
+     padding-bottom: 0px;
+   }
+
+   .hero-text p {
+     font-size: 18px;
+     line-height: 26px;
+   }
+
+   .timeline-container {
+     justify-content: start;
+   }
+
+   .phase {
+     flex: 0 0 70vw;
+     padding: 10px 5px;
+   }
+
+   .timeline::before {
+     width: 450vw;
+   }
+
+   .speech-bubble p {
+     font-size: 16px;
+
+   }
+
+   .cus-line-he {
+     font-size: 15px;
+     line-height: 15px !important;
+   }
+
+   .speech-bubble p span {
+     font-size: 14px;
+   }
+
+   .speech-bubble {
+     width: 80px;
+     height: 70px;
+   }
+
+   .navbar {
+     display: block;
+     padding: 20px 0px;
+   }
+
+   .nav-links {
+     list-style: none;
+     display: flex;
+     gap: 5px;
+     padding: 0px;
+     justify-content: space-between;
+   }
+
+   .nav-links a {
+     text-decoration: none;
+     color: #fff;
+     font-size: 16px;
+     transition: 0.5s;
+   }
+
+   .cta-button {
+     font-size: 18px;
+   }
+ }

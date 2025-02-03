@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabbitholes Finance</title>
+    <link rel="icon" href="./images/fav-icon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    
+</head>
+<body>
+    <div class="container">
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="#top"><img src="images/logo.png" alt="Rabbitholes Finance"></a></div>
+            <ul class="nav-links">
+                <li><a href="#">home</a></li>
+                <li><a href="#what-we-do">about-us</a></li>
+                <li><a href="#tokenomics">tokenomics</a></li>
+                <li><a href="#roadmap">roadmap</a></li>
+                <li><a href="#faq">faq</a></li>
+            </ul>
+            <button class="cta-button">buy $RHFI</button>
+        </nav>
+    </header>
+
+  
+
+
+   <section class="hero">
+        <div class="hero-text">
+            <h1 id="hover-text" class="hover-effect">follow the white rabbit<br> to financial liberation</h1>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const textElement = document.getElementById('hover-text');
+                    const originalText = textElement.textContent;
+                
+                    textElement.addEventListener('mouseover', () => {
+                        let scrambledText = '';
+                        let index = 0;
+                        let mouseOnText = true;
+                        let showMarker = true;
+                
+                        const interval = setInterval(() => {
+                            if (index < originalText.length) {
+                                scrambledText += String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
+                                textElement.textContent = scrambledText + (showMarker ? '|' : ''); // Add marker
+                                showMarker = !showMarker; // Toggle marker visibility
+                                index++;
+                            } else {
+                                clearInterval(interval);
+                                if (mouseOnText) {
+                                    textElement.textContent = originalText;
+                                }
+                            }
+                        }, 50); // Typing effect speed
+                
+                        textElement.addEventListener('mouseout', () => {
+                            mouseOnText = false;
+                            textElement.textContent = originalText;
+                            clearInterval(interval);
+                        });
+                    });
+                });
+                </script>
+            <!-- <p class="hover-effect">Explore the Fusion of Social and Decentralized Finance. Rabbits bring together the social networking and decentralized finance, empowering users to connect, create, and earn in a gamified ecosystem.</p> -->
+            <button class="cta-button">read the whitepaper</button>
+        </div>
+        <div class="hero-graphic"><img class="dog-running" src="./images/rabbit-outer-img.png" alt="Rabbit"></div>
+    </section>
+
+    <section id="buy-token">
+      <h2 id="hover-text-buy">welcome to rabbitholes finance</h2>
+      <script>
+          document.addEventListener('DOMContentLoaded', () => {
+              const textElement = document.getElementById('hover-text-buy');
+              const originalText = textElement.textContent;
+          
+              textElement.addEventListener('mouseover', () => {
+                  let scrambledText = '';
+                  let index = 0;
+                  let mouseOnText = true;
+                  let showMarker = true;
+          
+                  const interval = setInterval(() => {
+                      if (index < originalText.length) {
+                          scrambledText += String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
+                          textElement.textContent = scrambledText + (showMarker ? '|' : ''); // Add marker
+                          showMarker = !showMarker; // Toggle marker visibility
+                          index++;
+                      } else {
+                          clearInterval(interval);
+                          if (mouseOnText) {
+                              textElement.textContent = originalText;
+                          }
+                      }
+                  }, 50); // Typing effect speed
+          
+                  textElement.addEventListener('mouseout', () => {
+                      mouseOnText = false;
+                      textElement.textContent = originalText;
+                      clearInterval(interval);
+                  });
+              });
+          });
+          </script>
+          <p>$RHFI is your gateway to a new era of decentralized finance, merging the worlds of crypto and social networking. buy now and be part of a revolution that aims for financial freedom with a vibrant, community-driven-and-owned social network and defi protocol.</p>
+ 
+
+      <div class="buy-token-info">
+          <!-- <div class="tok-left">
+          <div class="token-details">
+              <h3>Welcome to the world of rabbitholes finance</h3>
+              <p class="hover-effect">$RHFI is your gateway to a new era of decentralized finance, merging the worlds of crypto and social networking. Get ready to elevate your crypto journey with $RHFI. Buy now and be part of a revolution that aims for financial freedom with a vibrant, community-driven-and-owned social network and DeFi protocol.</p>
+              
+          </div>
+          <button class="cta-button">Buy now</button>
+      </div> -->
+      <div class="tok-right">
+          <div class="presale-widget">
+              <h4><strong><span>.</span> buy $RHFI now <span>.</span></strong></h4>
+              <div class="countdown-container">
+                  <div class="countdown-item">
+                    <div class="circle">
+                      <span id="days">0</span>
+                      <p>Days</p>
+                    </div>
+                    
+                  </div>
+                  <div class="countdown-item">
+                    <div class="circle">
+                      <span id="hours">0</span>
+                      <p>Hours</p>
+                    </div>
+                    
+                  </div>
+                  <div class="countdown-item">
+                    <div class="circle">
+                      <span id="minutes">0</span>
+                      <p>Min</p>
+                    </div>
+                   
+                  </div>
+                  <div class="countdown-item">
+                    <div class="circle">
+                      <span id="seconds">0</span>
+                      <p>Sec</p>
+                    </div>
+                    
+                  </div>
+                </div>
+
+                
+                
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+const endDate = new Date("2024-12-31T23:59:59").getTime();
+
+const daysElement = document.getElementById("days");
+const hoursElement = document.getElementById("hours");
+const minutesElement = document.getElementById("minutes");
+const secondsElement = document.getElementById("seconds");
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const timeLeft = endDate - now;
+
+  if (timeLeft <= 0) {
+    clearInterval(interval);
+    daysElement.textContent = "0";
+    hoursElement.textContent = "0";
+    minutesElement.textContent = "0";
+    secondsElement.textContent = "0";
+    return;
+  }
+
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+  daysElement.textContent = days;
+  hoursElement.textContent = hours;
+  minutesElement.textContent = minutes;
+  secondsElement.textContent = seconds;
+}
+
+const interval = setInterval(updateCountdown, 1000);
+updateCountdown();
+});
+
+
+              </script>
+
+</div>
+<div class="cus-fea">
+  <div class="top-line-flex">
+  <p>token name:</p>
+  <p>$RHFI</p>
+</div>
+  <p>presale price:</p>
+  <p>launch price:</p>
+  <div class="progress-container">
+      <div class="progress-label">
+        <span>presale sold:</span>
+        <span class="progress-percentage">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+<script>
+  // Example of updating the progress dynamically
+const progressFill = document.querySelector('.progress-fill');
+const progressPercentage = document.querySelector('.progress-percentage');
+
+// Function to update progress
+function updateProgress(value) {
+const percentage = Math.min(100, Math.max(0, value)); // Clamp between 0 and 100
+progressFill.style.width = `${percentage}%`;
+progressPercentage.textContent = `${percentage}%`;
+}
+
+// Update progress to 70% for demonstration
+updateProgress(70);
+
+</script>      
+<div class="top-line-flex">
+  <p>amount in SOL you pay:</p>
+  <p>0.00 SOL</p>
+</div>
+<div class="input-container">
+  <input type="text" class="styled-input" placeholder="0" />
+</div>
+<div class="top-line-flex">
+  <p>amount of $RHFI you recieve:</p>
+ 
+</div>
+<div class="input-container">
+  <input type="text" class="styled-input" placeholder="0" />
+</div>
+          </div>
+          <button class="cta-button">connect wallet</button>
+  </div>
+  </section>
+
+    <section id="what-we-do">
+        <h2 id="hover-text-what">about us</h2>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const textElement = document.getElementById('hover-text-what');
+                const originalText = textElement.textContent;
+            
+                textElement.addEventListener('mouseover', () => {
+                    let scrambledText = '';
+                    let index = 0;
+                    let mouseOnText = true;
+                    let showMarker = true;
+            
+                    const interval = setInterval(() => {
+                        if (index < originalText.length) {
+                            scrambledText += String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
+                            textElement.textContent = scrambledText + (showMarker ? '|' : ''); // Add marker
+                            showMarker = !showMarker; // Toggle marker visibility
+                            index++;
+                        } else {
+                            clearInterval(interval);
+                            if (mouseOnText) {
+                                textElement.textContent = originalText;
+                            }
+                        }
+                    }, 50); // Typing effect speed
+            
+                    textElement.addEventListener('mouseout', () => {
+                        mouseOnText = false;
+                        textElement.textContent = originalText;
+                        clearInterval(interval);
+                    });
+                });
+            });
+            </script>
+        <p>welcome to the future of socialFi</p>
+        <p>we are creating a community-driven platform built on solana that celebrates the excitement and possibilities of decentralization. anyone interested in crypto, from degens and memecoin traders to conspiracy theorists, is welcome to join our user-owned and operated social network where users can earn, explore and connect.</p>
+    </section>
+
+    <section id="tokenomics">
+        <h2 id="hover-text-to">tokenomics</h2>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const textElement = document.getElementById('hover-text-to');
+                const originalText = textElement.textContent;
+            
+                textElement.addEventListener('mouseover', () => {
+                    let scrambledText = '';
+                    let index = 0;
+                    let mouseOnText = true;
+                    let showMarker = true;
+            
+                    const interval = setInterval(() => {
+                        if (index < originalText.length) {
+                            scrambledText += String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
+                            textElement.textContent = scrambledText + (showMarker ? '|' : ''); // Add marker
+                            showMarker = !showMarker; // Toggle marker visibility
+                            index++;
+                        } else {
+                            clearInterval(interval);
+                            if (mouseOnText) {
+                                textElement.textContent = originalText;
+                            }
+                        }
+                    }, 50); // Typing effect speed
+            
+                    textElement.addEventListener('mouseout', () => {
+                        mouseOnText = false;
+                        textElement.textContent = originalText;
+                        clearInterval(interval);
+                    });
+                });
+            });
+            </script>
+        <p>our platform integrates a native utility and governance token ($RHFI). this token is central to the platform’s functions, from facilitating transactions to granting user incentives and allowing participation in the platform’s governance. users can earn $RHFI in various ways, such as participating in communities, staking or otherwise contributing to the ecosystem.</p>
+   
+        <div class="token-chart">
+            <img src="./images/tokenomics-img.png" alt="Tokenomics" id="zoomable-image">
+          </div>
+       <script>
+        const image = document.getElementById("zoomable-image");
+const container = document.querySelector(".token-chart");
+
+container.addEventListener("mousemove", (e) => {
+  // Get the position of the mouse relative to the container
+  const rect = container.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) * 100; // Calculate X percentage
+  const y = ((e.clientY - rect.top) / rect.height) * 100; // Calculate Y percentage
+
+  // Set CSS custom properties to dynamically change transform-origin
+  image.style.setProperty("--mouse-x", `${x}%`);
+  image.style.setProperty("--mouse-y", `${y}%`);
+});
+
+       </script>
+          
+          
+    </section>
+
+    
+
+    <section id="roadmap">
+
+
+
+        <h2 id="hover-text-road">roadmap</h2>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const textElement = document.getElementById('hover-text-road');
+                const originalText = textElement.textContent;
+            
+                textElement.addEventListener('mouseover', () => {
+                    let scrambledText = '';
+                    let index = 0;
+                    let mouseOnText = true;
+                    let showMarker = true;
+            
+                    const interval = setInterval(() => {
+                        if (index < originalText.length) {
+                            scrambledText += String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
+                            textElement.textContent = scrambledText + (showMarker ? '|' : ''); // Add marker
+                            showMarker = !showMarker; // Toggle marker visibility
+                            index++;
+                        } else {
+                            clearInterval(interval);
+                            if (mouseOnText) {
+                                textElement.textContent = originalText;
+                            }
+                        }
+                    }, 50); // Typing effect speed
+            
+                    textElement.addEventListener('mouseout', () => {
+                        mouseOnText = false;
+                        textElement.textContent = originalText;
+                        clearInterval(interval);
+                    });
+                });
+            });
+            </script>
+
+<div class="test-sec">
+    <div class="timeline-container">
+        <!-- Horizontal Timeline -->
+        <div class="timeline">
+          <!-- Phase 1 -->
+          <div class="phase">
+            <div class="speech-bubble">
+              <p>q4 2024:</p>
+              <p class="cus-line-he"><span>pre-launch and community building</span></p>
+            </div>
+            <div class="description">
+              <p> <span style="font-weight: bolder;">objective:</span> create hype, set up core community, onboard early adopters.</p>
+                <p> <span style="font-weight:bolder;"> key actions:</span> initial pre-seed sale for fundraising and development, social media marketing of the platform</p>
+            </div>
+          </div>
+    
+          <!-- Phase 2 -->
+          <div class="phase">
+            <div class="speech-bubble">
+              <p>q1 2025:</p>
+              <p class="cus-line-he"><span>official nft collection launch</span></p>
+            </div>
+            <div class="description">
+              <p> <span style="font-weight: bolder;">objective:</span> launch the official nft collection.</p>
+                <p> <span style="font-weight:bolder;"> key actions:</span>  a unique nft collection that includes special pieces that give the holder special rights and privileges including a share of the platform’s revenue.</p>
+            </div>
+          </div>
+    
+          <!-- Phase 3 -->
+          <div class="phase">
+            <div class="speech-bubble">
+              <p>q2 2025:</p>
+              <p class="cus-line-he"><span>official beta launch of platform</span></p>
+            </div>
+            <div class="description">
+              <p> <span style="font-weight: bolder;">objective:</span>  launch the platform with socialfi functionalities, focusing on user engagement.</p>
+                <p> <span style="font-weight:bolder;"> key actions:</span> unveil the platform, activate tokenized engagement, launch staking and defi features, integrate the decentralized exchange (dex) and liquidity pools for token swapping and earning fees, launch nft marketplace for trading nfts, implement yield farming to reward liquidity providers, enable social token creation for community engagement, and organize special nft drop campaigns with gamified nfts unlocking hidden content</p>
+            </div>
+          </div>
+    
+          <!-- Phase 4 -->
+          <div class="phase">
+            <div class="speech-bubble">
+              <p>q3 2025:</p>
+              <p class="cus-line-he"><span>community growth and global outreach</span></p>
+            </div>
+            <div class="description">
+              <p> <span style="font-weight: bolder;">objective:</span> grow the user base globally</p>
+                <p> <span style="font-weight:bolder;"> key actions:</span> expand the platform with localized communities in multiple languages to cater to international users, partner with web3 projects for cross-promotional events and quests, organize regular nft and token airdrops to reward active users,and encourage users to create engaging communities and viral content, with rewards in tokens or nfts</p>
+            </div>
+          </div>
+
+           <!-- Phase 5 -->
+           <div class="phase">
+            <div class="speech-bubble">
+              <p>q4 2025:</p>
+              <p class="cus-line-he"><span>full platform expansion, dao launch</span></p>
+            </div>
+            <div class="description">
+              <p> <span style="font-weight: bolder;">objective:</span> launch decentralized governance and establish long-term sustainability through a thriving community and decentralized economy.</p>
+                <p> <span style="font-weight:bolder;"> key actions:</span> introduce governance features where token holders can vote on platform upgrades and community guidelines, allow creators to monetize content through subscriptions, token-gated access, and decentralized crowdfunding, launch a global marketing campaign with web3 media and influencers to drive platform adoption, generate sustainable revenue through defi transaction and staking fees along with royalties from the nft marketplace, regularly release new features, quests, and defi opportunities to maintain user engagement, expand ecosystem partnerships with gaming, web3, and entertainment platforms to build a network of interconnected communities</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+       
+    </section>
+
+    <section id="faq">
+        <h2 id="hover-text-faq">frequently asked questions</h2>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const textElement = document.getElementById('hover-text-faq');
+                const originalText = textElement.textContent;
+            
+                textElement.addEventListener('mouseover', () => {
+                    let scrambledText = '';
+                    let index = 0;
+                    let mouseOnText = true;
+                    let showMarker = true;
+            
+                    const interval = setInterval(() => {
+                        if (index < originalText.length) {
+                            scrambledText += String.fromCharCode(Math.floor(Math.random() * (126 - 33) + 33));
+                            textElement.textContent = scrambledText + (showMarker ? '|' : ''); // Add marker
+                            showMarker = !showMarker; // Toggle marker visibility
+                            index++;
+                        } else {
+                            clearInterval(interval);
+                            if (mouseOnText) {
+                                textElement.textContent = originalText;
+                            }
+                        }
+                    }, 50); // Typing effect speed
+            
+                    textElement.addEventListener('mouseout', () => {
+                        mouseOnText = false;
+                        textElement.textContent = originalText;
+                        clearInterval(interval);
+                    });
+                });
+            });
+            </script>
+        <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-header open-header">
+                What is RabbitHoles Finance?
+                <span class="arrow">▲</span>
+              </button>
+              <div class="accordion-content open">
+                <p>rabbitholes finance is a decentralized, community-owned socialfi platform for those who believe in the promise of the blockchain to reshape our society</p>
+              </div>
+            </div>
+          
+            <div class="accordion-item">
+              <button class="accordion-header">
+                what is $RHFI?
+                <span class="arrow">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p>$RHFI is our platform's native utility and governance token. holders of $RHFI can
+                  participate in governance, voting on proposals that shape the platform's future. $RHFI is
+                  designed to reward engagement and power the platform by enabling token swaps, staking,
+                  yield farming, and access to premium features</p>
+              </div>
+            </div>
+          
+            <div class="accordion-item">
+              <button class="accordion-header">
+                how do i get $RHFI?
+                <span class="arrow">▼</span>
+              </button>
+              <div class="accordion-content">
+                <p>users can purchase $RHFI through the presale widget on rabbitholes.fi</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                  how can i stay updated?
+                  <span class="arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <p>follow us on x, discord and telegram</p>
+                </div>
+              </div>
+
+              </div>
+          </div>
+          
+          
+          <script>
+         document.addEventListener("DOMContentLoaded", () => {
+  const headers = document.querySelectorAll(".accordion-header");
+  const contents = document.querySelectorAll(".accordion-content");
+
+  // Set the first accordion content to be open by default
+  const firstContent = contents[0];
+  firstContent.style.maxHeight = firstContent.scrollHeight + "px";
+  headers[0].querySelector(".arrow").classList.add("rotate");
+  headers[0].classList.add("open-header"); // Add open-header to the first header
+
+  headers.forEach((header, index) => {
+    header.addEventListener("click", () => {
+      const content = header.nextElementSibling;
+      const arrow = header.querySelector(".arrow");
+
+      // Close all other accordions
+      contents.forEach((otherContent, i) => {
+        const otherHeader = headers[i];
+        const otherArrow = otherHeader.querySelector(".arrow");
+
+        if (i !== index) {
+          otherContent.classList.remove("open");
+          otherContent.style.maxHeight = null;
+          otherArrow.classList.remove("rotate"); // Reset arrow rotation
+          otherHeader.classList.remove("open-header"); // Remove open-header from other headers
+        }
+      });
+
+      // Toggle the current accordion
+      if (content.classList.contains("open")) {
+        content.classList.remove("open");
+        content.style.maxHeight = null;
+        arrow.classList.remove("rotate"); // Reset arrow to down
+        header.classList.remove("open-header"); // Remove open-header from the current header
+      } else {
+        content.classList.add("open");
+        content.style.maxHeight = content.scrollHeight + "px";
+        arrow.classList.add("rotate"); // Rotate arrow to up
+        header.classList.add("open-header"); // Add open-header to the current header
+      }
+    });
+  });
+});
+
+
+
+
+          </script>
+    </section>
+</div>
+    <footer>
+        
+            <div class="foot-img">
+                <div class="container">
+        <img src="./images/logo-bottom.png" alt="Rabbit">
+    </div>
+</div>
+        <div class="social-icons">
+            <div class="container">
+            <p>Follow us on:</p>
+            <p><a href="#"><img src="./images/social-icon-1.png" alt=""></a> <a href="#"><img src="./images/social-icon-2.png" alt=""></a></p>
+        </div>
+    </div>
+    </footer>
+
+<script>
+    function smoothScroll(target, duration) {
+      const targetElement = document.querySelector(target);
+      const targetPosition = targetElement.getBoundingClientRect().top - 0; // 100px offset
+      const startPosition = window.pageYOffset;
+      let startTime = null;
+    
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, targetPosition, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
+    
+      function ease(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+      }
+    
+      requestAnimationFrame(animation);
+    }
+    
+    document.querySelectorAll('nav a, .logo-link.buy-button').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        smoothScroll(this.getAttribute('href'), 1200); // Adjust duration as needed
+      });
+    });
+    
+    
+    </script>
+</body>
+</html>
