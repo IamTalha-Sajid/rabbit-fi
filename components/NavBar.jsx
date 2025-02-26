@@ -21,60 +21,25 @@ export default function NavBar({ className }) {
 
   const closeModal = useCallback(() => {
     setIsModalOpen(false);
-    sign();
   }, []);
 
   useEffect(() => {
     if (buttonState === "connected") {
       closeModal();
-      // alert("Signed")
     } else if (buttonState === "no-wallet") {
       setIsSigned(false);
     }
-  }, [buttonState, setIsSigned]);
+  }, [buttonState, closeModal]);
 
-  useEffect(() => {
-    closeModal();
-    setIsSigned();
-  }, [closeModal, setIsSigned]);
-
-  const handleWalletChange = () => {
-    switch (buttonState) {
-      case "no-wallet":
-        openModal();
-        break;
-      // case "has-wallet":
-      //   console.log(buttonState);
-      //   if (onConnect) {
-      //     onConnect();
-      //   }
-      //   break;
-      default:
-        if (isSigned) signOut();
-        onDisconnect();
+  const handleWalletChange = useCallback(() => {
+    if (buttonState === "connected") {
+      onDisconnect();
     }
-  };
+  }, [buttonState, onDisconnect]);
 
   const handleDisconnect = useCallback(() => {
     onDisconnect();
   }, [onDisconnect]);
-
-  //SignUp and signIn at once.
-  const sign = useCallback(async () => {
-    if (isSigned) return;
-    if (buttonState == "connected") {
-      const response = await signIn(wallet);
-      console.log(response);
-      setIsSigned(response.isSigned);
-      // if (!response.isSigned) onDisconnect();
-    }
-  }, [isSigned, buttonState, wallet, setIsSigned, onDisconnect]);
-
-  //SignOut by removing the token from LocalStorage
-  const signOut = useCallback(async () => {
-    window.localStorage.removeItem("token");
-    setIsSigned(false);
-  }, [setIsSigned]);
 
   return (
     <>

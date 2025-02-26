@@ -11,7 +11,7 @@ import { Program, BN, Provider } from "@project-serum/anchor";
 import { Connection, PublicKey, SystemProgram } from "@solana/web3.js";
 import { getAssociatedTokenAddress, createAssociatedTokenAccountInstruction, TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, getAccount, getAssociatedTokenAddressSync } from "@solana/spl-token";
 import icoIdl from "@/components/idl/ico_program.json";
-import Image from 'next/image';
+
 
 const PROGRAM_ID = new PublicKey(process.env.NEXT_PUBLIC_PROGRAM_ID);
 const TOKEN_MINT = new PublicKey(process.env.NEXT_PUBLIC_TOKEN_MINT);
@@ -37,6 +37,9 @@ const HomePage = () => {
     const [totalTokens, setTotalTokens] = useState(0);
     const [activeAccordion, setActiveAccordion] = useState(0);
 
+        const [isOpen, setIsOpen] = useState(false);
+   
+    
     //Timer Logic
     useEffect(() => {
         const targetDate = new Date(process.env.NEXT_PUBLIC_PRESALE_END_DATE).getTime();
@@ -159,7 +162,7 @@ const HomePage = () => {
             console.error("Error fetching ICO data:", error);
             toast.error("Failed to fetch presale progress");
         }
-    }, [wallet.connected]);
+    }, [wallet.connected, wallet.publicKey, wallet.signTransaction, wallet.signAllTransactions]);
 
     useEffect(() => {
         fetchIcoData();
@@ -168,10 +171,20 @@ const HomePage = () => {
     const buyTokens = async () => {
         if (!wallet.connected || !inputAmount) return;
 
-        const loadingToast = toast.loading("Processing transaction...");
-
         try {
             const connection = new Connection(process.env.NEXT_PUBLIC_RPC_URL, "confirmed");
+            
+            // Check wallet balance
+            const balance = await connection.getBalance(wallet.publicKey);
+            const requiredAmount = parseFloat(inputAmount) * LAMPORTS_PER_SOL;
+            
+            if (balance < requiredAmount) {
+                toast.error("Insufficient SOL balance in your wallet");
+                return;
+            }
+
+            const loadingToast = toast.loading("Processing transaction...");
+
             const provider = {
                 connection,
                 publicKey: wallet.publicKey,
@@ -324,34 +337,35 @@ const HomePage = () => {
                 }}
             />
                 <WalletModal isOpen={isModalOpen} onClose={closeModal} />
-            <header>
-                <nav className="navbar">
-                    <div className="logo">
-                        <a href="#top">
-                                <img src="images/logo.png" alt="rabbitholes finance" />
-                        </a>
-                    </div>
-                    <ul className="nav-links">
-                        <li>
-                                <a href="#top">home</a>
-                        </li>
-                        <li>
-                                <a href="#what-we-do">about us</a>
-                        </li>
-                        <li>
-                                <a href="#tokenomics">tokenomics</a>
-                        </li>
-                        <li>
-                                <a href="#roadmap">roadmap</a>
-                        </li>
-                        <li>
-                                <a href="#faq">faq</a>
-                        </li>
-                    </ul>
-                        <button className="cta-button">buy $RHFI</button>
-                </nav>
-            </header>
+                <header>
+            <nav className="navbar">
+                {/* Mobile Toggle Button */}
+                <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+                    ☰
+                </button>
 
+                {/* Logo in Center */}
+                <div className="logo">
+                    <a href="#top">
+                        <img src="images/logo.png" alt="rabbitholes finance" />
+                    </a>
+                </div>
+
+                {/* Navigation Links */}
+                <ul className={`nav-links ${isOpen ? "open" : ""}`}>
+                    <li><a href="#top">home</a></li>
+                    <li><a href="#what-we-do">about us</a></li>
+                    <li><a href="#tokenomics">tokenomics</a></li>
+                    <li><a href="#roadmap">roadmap</a></li>
+                    <li><a href="#faq">faq</a></li>
+                </ul>
+
+                {/* Buy Button on Right */}
+                <button className="cta-button" id="buyRhfi" onClick={handleWalletChange}>
+                    buy $RHFI
+                </button>
+            </nav>
+        </header>
             {/* Hero Section */}
             <section className="hero">
                 <div className="hero-text">
@@ -360,17 +374,20 @@ const HomePage = () => {
                         <br />
                         to financial liberation
                     </h1>
-                    <button
-                        className="cta-button"
-                        onClick={() => {
-                            document.getElementById('buy-token').scrollIntoView({
-                                behavior: 'smooth'
-                            });
-                        }}
-                    >
-                            read the whitepaper
-                    </button>
-                </div>
+                    <button 
+    className="cta-button" 
+    onClick={() => {
+        const link = document.createElement("a");
+        link.href = "/Rabbit Finance Whitepaper.pdf";  // File path in public folder
+        link.download = "Rabbit Finance Whitepaper.pdf";  // Sets the downloaded filename
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }}
+>
+    Read the Whitepaper
+</button>
+               </div>
                 <div className="hero-graphic">
                     <img className="dog-running" src="./images/rabbit-outer-img.png" alt="Rabbit" />
                 </div>

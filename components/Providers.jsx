@@ -14,13 +14,13 @@ import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import { AppProvider } from "@/contexts/AppContext";
 
 export default function Providers({ children }) {
-  const network = WalletAdapterNetwork.Mainnet;
+  const network = useMemo(() => WalletAdapterNetwork.Mainnet, []);
   const endpoint = useMemo(() => 
     clusterApiUrl(network)
   , [network]);
   const wallets = useMemo(
     () => [new PhantomWalletAdapter(), new SolflareWalletAdapter()],
-    [network]
+    []
   );
   
   return (
